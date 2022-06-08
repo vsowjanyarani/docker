@@ -1,0 +1,11 @@
+FROM mongo
+RUN apt-get -y update
+RUN apt-get -y install mysql-server --fix-missing --fix-broken
+RUN apt install -y gnupg
+RUN apt install -y gnupg1
+RUN apt install -y gnupg2
+RUN apt install -y wget
+EXPOSE 3306
+RUN         apt-get update && apt-get install -y redis-server
+EXPOSE      6379
+CMD         ["/usr/bin/redis-server"]
