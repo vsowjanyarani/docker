@@ -1,0 +1,14 @@
+FROM node
+LABEL maintainer "sowjanyarani.v@gmail.com"
+MAINTAINER "5555"
+RUN apt-get update
+RUN apt-get install git -y   
+RUN git clone https://github.com/aamirpinger/docker-assignment.git
+RUN mkdir app
+WORKDIR /docker-assignment   
+RUN cp -r /docker-assignment/node-client-app /app
+WORKDIR /app/node-client-app
+RUN npm install
+ENV CREATEDBY="sowji" 
+EXPOSE 2000
+ENTRYPOINT node ./src/app.js
