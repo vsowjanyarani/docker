@@ -1,0 +1,16 @@
+FROM alpine
+LABEL maintainer "sowjanyarani.v@gmail.com"
+MAINTAINER 5555
+RUN apk add --update nodejs 
+RUN apk add npm
+RUN apk update
+RUN apk add git
+RUN git clone https://github.com/aamirpinger/"docker-assignment.git"
+RUN mkdir app
+RUN ls
+WORKDIR /"docker-assignment"
+RUN ls
+RUN cp -r /"docker-assignment"/node-server-app /app
+WORKDIR /app/node-server-app
+RUN npm install
+ENTRYPOINT node ./src/app.js
