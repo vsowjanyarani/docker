@@ -1,0 +1,14 @@
+FROM node
+MAINTAINER "namratamansur@gmail.com"
+RUN apt-get update
+RUN apt-get install git -y
+RUN git clone https://github.com/johnpapa/node-hello.git
+WORKDIR /node-hello
+RUN npm install
+#WORKDIR /home
+#RUN useradd -ms /bin/bash newuser
+#USER newuser
+#WORKDIR /home/newuser
+#WORKDIR /node-hello
+ENTRYPOINT npm start
+EXPOSE 3000
